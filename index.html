@@ -88,6 +88,93 @@ footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
   font-size: 18px;
   margin-top: 10px;
 }
+  .banner {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 5s ease;
+}
+
+.banner:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.4),
+    rgba(0,0,0,0.7)
+  );
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease;
+}
+
+.titulo {
+  font-size: 42px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.subtitulo {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.detalle {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .banner {
+    height: 300px;
+  }
+
+  .titulo {
+    font-size: 26px;
+  }
+
+  .subtitulo {
+    font-size: 16px;
+  }
+}
 </style>
 </head>
 
@@ -97,9 +184,10 @@ footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
 
   <div class="overlay"></div>
 
-  <div class="banner-text">
-    <h1>Condominio Los Andes</h1>
-    <p>Portal Oficial de Documentos y Rendición de Cuentas</p>
+  <div class="banner-content">
+    <h1 class="titulo">Condominio Los Andes</h1>
+    <p class="subtitulo">Portal Oficial de Documentos</p>
+    <span class="detalle">Transparencia • Organización • Gestión 2026</span>
   </div>
 </div>
 
