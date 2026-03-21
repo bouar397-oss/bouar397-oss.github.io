@@ -10,356 +10,148 @@ body{margin:0;font-family:Arial;background:#f4f6f9;color:#111}
 header{background:#0a1f44;color:#fff;padding:25px;text-align:center}
 nav{background:#102a5c;padding:12px;text-align:center}
 nav a{color:#fff;margin:10px;text-decoration:none;font-weight:bold}
-.hero{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#0a1f44,#1c3d7a);color:#fff}
-section{padding:50px 20px;text-align:center}
+section{padding:40px 20px;text-align:center}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 5px 15px rgba(0,0,0,0.1)}
-.btn{background:#0a1f44;color:#fff;padding:10px 15px;border:none;border-radius:6px;text-decoration:none;display:inline-block;margin-top:10px}
+.btn{background:#0a1f44;color:#fff;padding:10px;border-radius:6px;text-decoration:none}
 footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 18px;border-radius:50px;text-decoration:none;font-weight:bold}
 
-.category {
-  margin-top: 40px;
-}
+/* BANNER */
+.banner{position:relative;height:420px}
+.banner img{width:100%;height:100%;object-fit:cover}
+.overlay{position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.6)}
+.banner-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;text-align:center}
+.titulo{font-size:42px}
+.subtitulo{font-size:20px}
 
-.category h2 {
-  border-bottom: 2px solid black;
-  padding-bottom: 5px;
-}
+/* FILTROS */
+.filtros{text-align:center;margin:20px}
+.filtros button{margin:5px;padding:10px;border:none;background:black;color:white;border-radius:5px;cursor:pointer}
 
-.document {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid black;
-}
+/* DOCUMENTOS */
+.category{margin-top:30px}
+.document{display:flex;justify-content:space-between;padding:10px;border:1px solid #ccc;margin:5px}
+.document button{background:black;color:white;border:none;padding:5px}
 
-.document button {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
-}
+/* CHATBOT */
+.chatbot{position:fixed;bottom:20px;right:20px;width:260px}
+.chat-header{background:black;color:white;padding:10px;cursor:pointer;text-align:center}
+.chat-body{display:none;background:white;height:200px;overflow:auto;padding:10px;border:1px solid #ccc}
+.chat-input{display:none;border:1px solid #ccc}
+.chat-input input{width:70%}
+.chat-input button{width:30%;background:black;color:white;border:none}
+.mensaje{margin:5px}
+.bot{color:blue}
+.user{text-align:right;color:green}
 
-.document button:hover {
-  opacity: 0.8;
-}
-.banner {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-.banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.banner-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-}
-
-.banner-text h1 {
-  font-size: 36px;
-  margin: 0;
-}
-
-.banner-text p {
-  font-size: 18px;
-  margin-top: 10px;
-}
-  .banner {
-  position: relative;
-  width: 100%;
-  height: 420px;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 40px;
-}
-
-.banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.05);
-  transition: transform 5s ease;
-}
-
-.banner:hover img {
-  transform: scale(1.1);
-}
-
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.6),
-    rgba(0,0,0,0.4),
-    rgba(0,0,0,0.7)
-  );
-}
-
-.banner-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  animation: fadeIn 2s ease;
-}
-
-.titulo {
-  font-size: 42px;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.subtitulo {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.detalle {
-  display: block;
-  margin-top: 15px;
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-/* Animación */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .banner {
-    height: 300px;
-  }
-
-  .titulo {
-    font-size: 26px;
-  }
-
-  .subtitulo {
-    font-size: 16px;
-  }
-}
+.whatsapp{position:fixed;bottom:20px;left:20px;background:#25D366;color:#fff;padding:12px;border-radius:50px;text-decoration:none}
 </style>
 </head>
 
 <body>
+
+<!-- BANNER -->
 <div class="banner">
-  <img src="losandes.jpg" alt="Condominio Los Andes">
-
-  <div class="overlay"></div>
-
-  <div class="banner-content">
-    <h1 class="titulo">Condominio Los Andes</h1>
-    <p class="subtitulo">Portal Oficial de Documentos</p>
-    <span class="detalle">Transparencia • Organización • Gestión 2026</span>
-  </div>
+<img src="losandes.jpg">
+<div class="overlay"></div>
+<div class="banner-content">
+<h1 class="titulo">Condominio Los Andes</h1>
+<p class="subtitulo">Portal Oficial de Documentos</p>
+</div>
 </div>
 
-<h1 style="text-align: center;">Portal de Documentos - Condominio Los Andes</h1>
 <header>
 <h1>RESIDENCIAL LOS ANDES</h1>
-<p>Av. Paso de los Andes 514 - Pueblo Libre</p>
 </header>
 
 <nav>
 <a href="#">Inicio</a>
-<a href="#comunicados">Comunicados</a>
-<a href="#documentos">Documentos</a>
-<a href="#agenda">Agenda</a>
-<a href="#proyectos">Proyectos</a>
-<a href="#contacto">Contacto</a>
+<a href="#docs">Documentos</a>
 </nav>
 
-<section class="hero">
-<h2>Bienvenidos a nuestra comunidad</h2>
-<p>175 propietarios comprometidos con la seguridad y convivencia</p>
+<!-- FILTROS -->
+<div class="filtros">
+<button onclick="filtrar('todos')">Todos</button>
+<button onclick="filtrar('comunicados')">Comunicados</button>
+<button onclick="filtrar('decretos')">Decretos</button>
+<button onclick="filtrar('escritos')">Escritos</button>
+<button onclick="filtrar('rendicion')">Rendición</button>
+</div>
+
+<section id="docs">
+
+<div class="category comunicados">
+<h2>📢 Comunicados</h2>
+<div class="document"><span>comunicado007.pdf</span><a href="comunicado007.pdf" target="_blank"><button>Descargar</button></a></div>
+<div class="document"><span>comunicado008.pdf</span><a href="comunicado008.pdf" target="_blank"><button>Descargar</button></a></div>
+<div class="document"><span>comunicado_oficial.pdf</span><a href="comunicado_oficial.pdf" target="_blank"><button>Descargar</button></a></div>
+</div>
+
+<div class="category decretos">
+<h2>📜 Decretos</h2>
+<div class="document"><span>decreto_1568.pdf</span><a href="decreto_1568.pdf" target="_blank"><button>Descargar</button></a></div>
+</div>
+
+<div class="category escritos">
+<h2>📄 Cartas / Escritos</h2>
+<div class="document"><span>carta06.pdf</span><a href="carta06.pdf" target="_blank"><button>Descargar</button></a></div>
+<div class="document"><span>escrito_fiscalia.pdf</span><a href="escrito_fiscalia.pdf" target="_blank"><button>Descargar</button></a></div>
+</div>
+
+<div class="category rendicion">
+<h2>📊 Rendición de Cuentas</h2>
+<div class="document"><span>rendicion_enero.pdf</span><a href="rendicion_enero.pdf" target="_blank"><button>Descargar</button></a></div>
+<div class="document"><span>rendicion_febrero.pdf</span><a href="rendicion_febrero.pdf" target="_blank"><button>Descargar</button></a></div>
+</div>
+
 </section>
 
-<section id="comunicados">
-<h2>Comunicados</h2>
-<div class="grid">
-<div class="card">
-<h3>Comunicado General</h3>
-<p>Información importante para todos los propietarios.</p>
+<footer>© 2026 Residencial Los Andes</footer>
+
+<a class="whatsapp" href="https://wa.me/51996138991" target="_blank">WhatsApp</a>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+<div class="chat-header" onclick="toggleChat()">💬 Ayuda</div>
+<div class="chat-body" id="chatBody">
+<div class="mensaje bot">Hola 👋 ¿Buscas comunicados, decretos o rendición?</div>
+</div>
+<div class="chat-input">
+<input type="text" id="userInput">
+<button onclick="enviarMensaje()">Enviar</button>
 </div>
 </div>
-</section>
 
-<section id="documentos">
-<h2>Documentos Oficiales</h2>
-<div class="grid">
-<div class="card">
-<h3>Reglamento Interno (Próximamente)</h3>
-<a class="btn" href="#">No disponible</a>
-</div>
-<div class="card">
-<h3>Manual de Convivencia (Próximamente)</h3>
-<a class="btn" href="#">No disponible</a>
-</div>
-<div class="card">
-<h3>Carta 06 - Peritaje Cisternas</h3>
-<a class="btn" href="carta06.pdf" target="_blank">Descargar</a>
-</div>
+<script>
+function filtrar(cat){
+let items=document.querySelectorAll('.category');
+items.forEach(i=>{
+if(cat==='todos'){i.style.display='block'}
+else{i.style.display=i.classList.contains(cat)?'block':'none'}
+})
+}
 
-<div class="card">
-<h3>Comunicado 007 - Comité de Vigilancia</h3>
-<a class="btn" href="comunicado007.pdf" target="_blank">Descargar</a>
-</div>
+function toggleChat(){
+let b=document.getElementById("chatBody");
+let i=document.querySelector(".chat-input");
+b.style.display=b.style.display==="block"?"none":"block";
+i.style.display=i.style.display==="block"?"none":"block";
+}
 
-<div class="card">
-<h3>Comunicado 008 - Independización</h3>
-<a class="btn" href="comunicado008.pdf" target="_blank">Descargar</a>
-</div>
+function enviarMensaje(){
+let input=document.getElementById("userInput");
+let msg=input.value.toLowerCase();
+if(!msg)return;
+let chat=document.getElementById("chatBody");
+chat.innerHTML+=`<div class="mensaje user">${msg}</div>`;
+let r="Revisa las secciones disponibles.";
+if(msg.includes("comunicado")) r="Ve a la sección Comunicados.";
+if(msg.includes("decreto")) r="Revisa Decretos.";
+if(msg.includes("rendicion")) r="Consulta Rendición.";
+setTimeout(()=>{chat.innerHTML+=`<div class="mensaje bot">${r}</div>`;chat.scrollTop=chat.scrollHeight;},500);
+input.value="";
+}
+</script>
 
-<div class="card">
-<h3>Comunicado Oficial</h3>
-<a class="btn" href="comunicado_oficial.pdf" target="_blank">Descargar</a>
-</div>
-
-<div class="card">
-<h3>Decreto Legislativo 1568</h3>
-<a class="btn" href="decreto_1568.pdf" target="_blank">Descargar</a>
-</div>
-
-<div class="card">
-<h3>Escrito Fiscalía Anticorrupción</h3>
-<a class="btn" href="escrito_fiscalia.pdf" target="_blank">Descargar</a>
-</div>
-
-
-  
-</div>
-</section>
-
-<section id="agenda">
-<h2>Agenda</h2>
-<div class="grid">
-<div class="card">
-<h3>Actividades Diarias</h3>
-<p>Seguridad, limpieza y mantenimiento</p>
-</div>
-<div class="card">
-<h3>Actividades Semanales</h3>
-<p>Revisión y coordinación de servicios</p>
-</div>
-</div>
-</section>
-
-<section id="proyectos">
-<h2>Proyectos</h2>
-<div class="grid">
-<div class="card">
-<h3>Mejoras de Infraestructura</h3>
-<p>Modernización de áreas comunes</p>
-</div>
-<div class="card">
-<h3>Seguridad Integral</h3>
-<p>Nuevas medidas de control y vigilancia</p>
-</div>
-</div>
-</section>
-
-<section id="contacto">
-<h2>Contacto</h2>
-<p>Presidente: Enrique Jiménez Alegría</p>
-</section>
-
-<footer>
-© 2026 Residencial Los Andes
-</footer>
-
-<a class="whatsapp" href="https://wa.me/51996138991?text=Hola,%20soy%20propietario%20de%20Residencial%20Los%20Andes" target="_blank">WhatsApp</a>
-
-  <h1>Portal de Documentos</h1>
-
-  <div class="category">
-    <h2>📄 Cartas / Escritos</h2>
-    <div class="document">
-      <span>carta06.pdf</span>
-      <a href="carta06.pdf" target="_blank"><button>Descargar</button></a>
-    </div>
-    <div class="document">
-      <span>escrito_fiscalia.pdf</span>
-      <a href="escrito_fiscalia.pdf" target="_blank"><button>Descargar</button></a>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>📢 Comunicados</h2>
-    <div class="document">
-      <span>comunicado007.pdf</span>
-      <a href="comunicado007.pdf" target="_blank"><button>Descargar</button></a>
-    </div>
-    <div class="document">
-      <span>comunicado008.pdf</span>
-      <a href="comunicado008.pdf" target="_blank"><button>Descargar</button></a>
-    </div>
-    <div class="document">
-      <span>comunicado_oficial.pdf</span>
-      <a href="comunicado_oficial.pdf" target="_blank"><button>Descargar</button></a>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>📜 Decretos</h2>
-    <div class="document">
-      <span>decreto_1568.pdf</span>
-      <a href="decreto_1568.pdf" target="_blank"><button>Descargar</button></a>
-    </div>
-  </div> 
-  <div class="category">
-  <h2>📊 Rendición de Cuentas</h2>
-
-  <div class="document">
-    <span>Rendición Enero 2026</span>
-    <a href="rendicion_enero.pdf" target="_blank">
-      <button>Descargar</button>
-    </a>
-  </div>
-
-  <div class="document">
-    <span>Rendición Febrero 2026</span>
-    <a href="rendicion_febrero.pdf" target="_blank">
-      <button>Descargar</button>
-    </a>
-  </div>
-
-</div>
 </body>
 </html>
