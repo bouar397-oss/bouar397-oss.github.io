@@ -428,5 +428,53 @@ footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
   </div>
 
 </div>
+  <script>
+function toggleChat(){
+  let body = document.getElementById("chatBody");
+  let input = document.querySelector(".chat-input");
+
+  if(body.style.display === "block"){
+    body.style.display = "none";
+    input.style.display = "none";
+  } else {
+    body.style.display = "block";
+    input.style.display = "block";
+  }
+}
+
+function enviarMensaje(){
+  let input = document.getElementById("userInput");
+  let mensaje = input.value.trim();
+
+  if(mensaje === "") return;
+
+  let chat = document.getElementById("chatBody");
+
+  chat.innerHTML += `<div class="mensaje user">${mensaje}</div>`;
+
+  let texto = mensaje.toLowerCase();
+  let respuesta = "No entendí tu consulta.";
+
+  if(texto.includes("comunicado")){
+    respuesta = "Puedes revisar los comunicados en su sección.";
+  }
+  else if(texto.includes("decreto")){
+    respuesta = "Los decretos están en la sección correspondiente.";
+  }
+  else if(texto.includes("rendicion")){
+    respuesta = "La rendición de cuentas está disponible.";
+  }
+  else if(texto.includes("contacto")){
+    respuesta = "Puedes escribir por WhatsApp usando el botón verde.";
+  }
+
+  setTimeout(()=>{
+    chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+  },500);
+
+  input.value = "";
+}
+</script>
 </body>
 </html>
