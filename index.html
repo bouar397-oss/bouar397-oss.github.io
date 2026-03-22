@@ -461,7 +461,11 @@ let respuesta = resultado.respuesta;
     chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
     chat.scrollTop = chat.scrollHeight;
   },500);
-
+if(resultado.accion){
+  setTimeout(()=>{
+    window.open(resultado.accion, "_blank");
+  },1000);
+}
   input.value = "";
 }
 
@@ -499,9 +503,10 @@ function responder(texto){
     },
 
     {
-      claves: ["cisterna", "agua"],
-      respuesta: "Revisa la Carta 06 sobre el peritaje de cisternas."
-    },
+  claves: ["cisterna", "agua"],
+  respuesta: "Revisa la Carta 06 sobre el peritaje de cisternas.",
+  accion: "carta06.pdf"
+}
 
     {
       claves: ["contacto", "whatsapp"],
