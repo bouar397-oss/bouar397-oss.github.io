@@ -231,6 +231,20 @@ footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
   text-align: right;
   color: green;
 }
+  .btn-chat {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #0a1f44;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.btn-chat:hover {
+  background: #163d7a;
+}
 </style>
 </head>
 <div class="chatbot">
@@ -459,7 +473,18 @@ function enviarMensaje(){
   let respuesta = resultado.respuesta;
 
   setTimeout(()=>{
-    chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
+    if(resultado.accion){
+  chat.innerHTML += `
+    <div class="mensaje bot">
+      ${respuesta}<br><br>
+      <a href="${resultado.accion}" target="_blank" class="btn-chat">
+        📂 Abrir documento
+      </a>
+    </div>
+  `;
+} else {
+  chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
+}
     chat.scrollTop = chat.scrollHeight;
   },500);
 
