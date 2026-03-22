@@ -428,7 +428,8 @@ footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
   </div>
 
 </div>
-  <script>
+ <script>
+
 function toggleChat(){
   let body = document.getElementById("chatBody");
   let input = document.querySelector(".chat-input");
@@ -453,20 +454,7 @@ function enviarMensaje(){
   chat.innerHTML += `<div class="mensaje user">${mensaje}</div>`;
 
   let texto = mensaje.toLowerCase();
-  let respuesta = "No entendí tu consulta.";
-
-  if(texto.includes("comunicado")){
-    respuesta = "Puedes revisar los comunicados en su sección.";
-  }
-  else if(texto.includes("decreto")){
-    respuesta = "Los decretos están en la sección correspondiente.";
-  }
-  else if(texto.includes("rendicion")){
-    respuesta = "La rendición de cuentas está disponible.";
-  }
-  else if(texto.includes("contacto")){
-    respuesta = "Puedes escribir por WhatsApp usando el botón verde.";
-  }
+  let respuesta = responder(texto);
 
   setTimeout(()=>{
     chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
@@ -475,6 +463,73 @@ function enviarMensaje(){
 
   input.value = "";
 }
+
+function preguntaRapida(tipo){
+  let texto = tipo;
+  let chat = document.getElementById("chatBody");
+
+  chat.innerHTML += `<div class="mensaje user">${texto}</div>`;
+
+  let respuesta = responder(texto);
+
+  setTimeout(()=>{
+    chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+  },500);
+}
+
+function responder(texto){
+
+  let respuestas = [
+
+    {
+      claves: ["comunicado", "comunicados"],
+      respuesta: "Puedes revisar los comunicados en su sección."
+    },
+
+    {
+      claves: ["decreto", "ley"],
+      respuesta: "Los decretos están disponibles en su sección."
+    },
+
+    {
+      claves: ["rendicion", "gastos", "cuentas"],
+      respuesta: "La rendición de cuentas muestra ingresos y gastos."
+    },
+
+    {
+      claves: ["cisterna", "agua"],
+      respuesta: "Revisa la Carta 06 sobre el peritaje de cisternas."
+    },
+
+    {
+      claves: ["contacto", "whatsapp"],
+      respuesta: "Puedes escribir por WhatsApp usando el botón verde."
+    },
+
+    {
+      claves: ["presidente"],
+      respuesta: "El presidente es Enrique Jiménez Alegría."
+    },
+
+    {
+      claves: ["hola", "buenas"],
+      respuesta: "Hola 👋 ¿En qué puedo ayudarte?"
+    }
+
+  ];
+
+  for(let item of respuestas){
+    for(let clave of item.claves){
+      if(texto.includes(clave)){
+        return item.respuesta;
+      }
+    }
+  }
+
+  return "No encontré información exacta. Intenta con otra pregunta.";
+}
+
 </script>
 </body>
 </html>
