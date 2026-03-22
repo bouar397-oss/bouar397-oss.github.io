@@ -428,7 +428,7 @@ footer{background:#0a1f44;color:#fff;text-align:center;padding:20px}
   </div>
 
 </div>
- <script>
+<script>
 
 function toggleChat(){
   let body = document.getElementById("chatBody");
@@ -454,33 +454,23 @@ function enviarMensaje(){
   chat.innerHTML += `<div class="mensaje user">${mensaje}</div>`;
 
   let texto = mensaje.toLowerCase();
+
   let resultado = responder(texto);
-let respuesta = resultado.respuesta;
+  let respuesta = resultado.respuesta;
 
   setTimeout(()=>{
     chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
     chat.scrollTop = chat.scrollHeight;
   },500);
-if(resultado.accion){
-  setTimeout(()=>{
-    window.open(resultado.accion, "_blank");
-  },1000);
-}
+
+  // 👇 abrir documento si existe
+  if(resultado.accion){
+    setTimeout(()=>{
+      window.open(resultado.accion, "_blank");
+    },1000);
+  }
+
   input.value = "";
-}
-
-function preguntaRapida(tipo){
-  let texto = tipo;
-  let chat = document.getElementById("chatBody");
-
-  chat.innerHTML += `<div class="mensaje user">${texto}</div>`;
-
-  let respuesta = responder(texto);
-
-  setTimeout(()=>{
-    chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
-    chat.scrollTop = chat.scrollHeight;
-  },500);
 }
 
 function responder(texto){
@@ -488,29 +478,21 @@ function responder(texto){
   let respuestas = [
 
     {
-      claves: ["comunicado", "comunicados"],
-      respuesta: "Puedes revisar los comunicados en su sección."
+      claves: ["cisterna", "agua"],
+      respuesta: "Revisa la Carta 06 sobre el peritaje de cisternas.",
+      accion: "carta06.pdf"
     },
 
     {
-      claves: ["decreto", "ley"],
-      respuesta: "Los decretos están disponibles en su sección."
+      claves: ["decreto", "1568"],
+      respuesta: "El documento legal es el Decreto Legislativo 1568.",
+      accion: "decreto_1568.pdf"
     },
 
     {
-      claves: ["rendicion", "gastos", "cuentas"],
-      respuesta: "La rendición de cuentas muestra ingresos y gastos."
-    },
-
-    {
-  claves: ["cisterna", "agua"],
-  respuesta: "Revisa la Carta 06 sobre el peritaje de cisternas.",
-  accion: "carta06.pdf"
-}
-
-    {
-      claves: ["contacto", "whatsapp"],
-      respuesta: "Puedes escribir por WhatsApp usando el botón verde."
+      claves: ["comunicado 007"],
+      respuesta: "Corresponde al Comité de Vigilancia.",
+      accion: "comunicado007.pdf"
     },
 
     {
@@ -519,7 +501,7 @@ function responder(texto){
     },
 
     {
-      claves: ["hola", "buenas"],
+      claves: ["hola"],
       respuesta: "Hola 👋 ¿En qué puedo ayudarte?"
     }
 
@@ -528,12 +510,14 @@ function responder(texto){
   for(let item of respuestas){
     for(let clave of item.claves){
       if(texto.includes(clave)){
-        return item.respuesta;
+        return item;
       }
     }
   }
 
-  return "No encontré información exacta. Intenta con otra pregunta.";
+  return {
+    respuesta: "No encontré información exacta."
+  };
 }
 
 </script>
