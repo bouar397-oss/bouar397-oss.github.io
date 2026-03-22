@@ -454,7 +454,8 @@ function enviarMensaje(){
   chat.innerHTML += `<div class="mensaje user">${mensaje}</div>`;
 
   let texto = mensaje.toLowerCase();
-  let respuesta = responder(texto);
+  let resultado = responder(texto);
+let respuesta = resultado.respuesta;
 
   setTimeout(()=>{
     chat.innerHTML += `<div class="mensaje bot">${respuesta}</div>`;
